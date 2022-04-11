@@ -1,4 +1,4 @@
-"""accademica URL Configuration
+"""latoh URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import include
+from rest_framework import routers
+from .views import CustomAuthToken, UserViewset
+
+api_routes = routers.DefaultRouter()
+api_routes.register(r'users', UserViewset)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api-token-auth/', CustomAuthToken.as_view()),
+    path('api/', include(api_routes.urls))
 ]
