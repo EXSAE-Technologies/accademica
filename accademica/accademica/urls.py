@@ -18,9 +18,13 @@ from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
 from .views import CustomAuthToken, UserViewset
+from school.views import SchoolViewset, ProgramViewset, CourseViewset
 
 api_routes = routers.DefaultRouter()
 api_routes.register(r'users', UserViewset)
+api_routes.register(r'schools', SchoolViewset)
+api_routes.register(r'programs', ProgramViewset)
+api_routes.register(r'courses', CourseViewset)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
