@@ -17,14 +17,17 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
-from .views import CustomAuthToken, UserViewset
+from .views import CustomAuthToken, UserViewset, GroupViewset
 from school.views import SchoolViewset, ProgramViewset, CourseViewset
+from student.views import StudentViewset
 
 api_routes = routers.DefaultRouter()
 api_routes.register(r'users', UserViewset)
+api_routes.register(r'groups', GroupViewset)
 api_routes.register(r'schools', SchoolViewset)
 api_routes.register(r'programs', ProgramViewset)
 api_routes.register(r'courses', CourseViewset)
+api_routes.register(r'students', StudentViewset)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
