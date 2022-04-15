@@ -19,7 +19,7 @@ from django.conf.urls import include
 from rest_framework import routers
 from .views import CustomAuthToken, UserViewset, GroupViewset
 from school.views import SchoolViewset, ProgramViewset, CourseViewset, ProfileViewset
-from student.views import StudentViewset
+from student.views import StudentViewset, GradeViewset
 
 api_routes = routers.DefaultRouter()
 api_routes.register(r'users', UserViewset)
@@ -29,6 +29,7 @@ api_routes.register(r'programs', ProgramViewset)
 api_routes.register(r'courses', CourseViewset)
 api_routes.register(r'students', StudentViewset)
 api_routes.register(r'profiles', ProfileViewset)
+api_routes.register(r'grades', GradeViewset)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
