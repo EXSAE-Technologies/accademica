@@ -1,6 +1,6 @@
 from rest_framework import viewsets, permissions
-from .serializers import SchoolSerializer, ProgramSerializer, CourseSerializer
-from .models import School, Program, Course
+from .serializers import SchoolSerializer, ProgramSerializer, CourseSerializer, ProfileSerializer
+from .models import School, Program, Course, Profile
 
 class SchoolViewset(viewsets.ModelViewSet):
     queryset=School.objects.all()
@@ -15,4 +15,9 @@ class ProgramViewset(viewsets.ModelViewSet):
 class CourseViewset(viewsets.ModelViewSet):
     queryset=Course.objects.all()
     serializer_class=CourseSerializer
+    permission_classes=[permissions.IsAuthenticated]
+
+class ProfileViewset(viewsets.ModelViewSet):
+    queryset=Profile.objects.all()
+    serializer_class=ProfileSerializer
     permission_classes=[permissions.IsAuthenticated]
