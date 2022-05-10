@@ -20,6 +20,7 @@ from rest_framework import routers
 from .views import CustomAuthToken, UserViewset, GroupViewset
 from school.views import SchoolViewset, ProgramViewset, CourseViewset, ProfileViewset
 from student.views import StudentViewset, GradeViewset
+from account.views import AccountViewset
 
 api_routes = routers.DefaultRouter()
 api_routes.register(r'users', UserViewset)
@@ -30,6 +31,7 @@ api_routes.register(r'courses', CourseViewset)
 api_routes.register(r'students', StudentViewset)
 api_routes.register(r'profiles', ProfileViewset)
 api_routes.register(r'grades', GradeViewset)
+api_routes.register(r'accounts', AccountViewset)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

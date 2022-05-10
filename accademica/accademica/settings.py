@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'school',
     'student',
     'accademica',
+    'account',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -80,8 +81,12 @@ WSGI_APPLICATION = 'accademica.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'accademica',
+        'USER': 'root',
+        'PASSWORD': 'shangala',
+        'HOST': 'localhost',
+        'PORT': 3306,
     }
 }
 

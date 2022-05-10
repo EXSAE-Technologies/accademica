@@ -17,7 +17,7 @@ class Program(models.Model):
         return self.name
 
 class Course(models.Model):
-    program = models.ForeignKey(Program, related_name='courses', on_delete=models.CASCADE)
+    programs = models.ManyToManyField(Program, related_name='courses')
     name = models.CharField(max_length=255)
     code = models.CharField(max_length=255)
 
