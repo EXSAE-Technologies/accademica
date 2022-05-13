@@ -21,7 +21,7 @@ class CustomAuthToken(ObtainAuthToken):
 class UserViewset(viewsets.ModelViewSet):
     queryset=User.objects.all()
     serializer_class=UserSerializer
-    permission_classes=[permissions.IsAuthenticated]
+    permission_classes=[permissions.IsAuthenticatedOrReadOnly]
 
 class GroupViewset(viewsets.ModelViewSet):
     queryset=Group.objects.all()

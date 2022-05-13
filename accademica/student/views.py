@@ -10,4 +10,4 @@ class StudentViewset(viewsets.ModelViewSet):
 class GradeViewset(viewsets.ModelViewSet):
     queryset=Grade.objects.all()
     serializer_class=GradeSerializer
-    permission_classes=[permissions.IsAuthenticated]
+    permission_classes=[permissions.IsAuthenticatedOrReadOnly]
