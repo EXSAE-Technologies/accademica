@@ -4,6 +4,7 @@ from .serializers import UserSerializer, GroupSerializer
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
+from rest_framework.decorators import action
 
 class CustomAuthToken(ObtainAuthToken):
 
@@ -21,7 +22,14 @@ class CustomAuthToken(ObtainAuthToken):
 class UserViewset(viewsets.ModelViewSet):
     queryset=User.objects.all()
     serializer_class=UserSerializer
-    permission_classes=[permissions.IsAuthenticatedOrReadOnly]
+    permission_classes=[permissions.IsAuthenticated]
+
+    @action(detail=False, methods=['get'])
+    def authenticated_user(self, request, *args, **kwargs):
+        user = UserSerializer(request.user)
+        return Response({
+            'user': user.data
+        })
 
 class GroupViewset(viewsets.ModelViewSet):
     queryset=Group.objects.all()
