@@ -17,12 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
+from accademica.api.routes import DefaultRouter
 from .views import CustomAuthToken, UserViewset, GroupViewset
 from school.views import SchoolViewset, ProgramViewset, CourseViewset, ProfileViewset
 from student.views import StudentViewset, GradeViewset
-from account.views import AccountViewset
+from account.api.routes import account_router
 
-api_routes = routers.DefaultRouter()
+api_routes = DefaultRouter()
 api_routes.register(r'users', UserViewset)
 api_routes.register(r'groups', GroupViewset)
 api_routes.register(r'schools', SchoolViewset)
@@ -31,7 +32,13 @@ api_routes.register(r'courses', CourseViewset)
 api_routes.register(r'students', StudentViewset)
 api_routes.register(r'profiles', ProfileViewset)
 api_routes.register(r'grades', GradeViewset)
-api_routes.register(r'accounts', AccountViewset)
+api_routes.extend(account_router)
+#api_routes.register(r'account', AccountViewset)
+
+#for x in account_routes:
+#    api_routes.register(x[0], x[1])
+
+#api_routes.include_routes(account_routes)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
