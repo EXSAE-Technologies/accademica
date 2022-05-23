@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from .models import Student, Grade
-from school.serializers import ProgramSerializer, CourseSerializer
+from student.models import Student, Grade
+from school.api.serializers import ProgramSerializer, CourseSerializer
 
 class GradeSerializer(serializers.ModelSerializer):
     class Meta:
