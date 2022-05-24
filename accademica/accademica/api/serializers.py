@@ -1,8 +1,8 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from student.serializers import StudentSerializer
+from student.api.serializers import StudentSerializer
 from school.models import Profile
-from school.serializers import ProfileSerializer
+from school.api.serializers import ProfileSerializer
 
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:
