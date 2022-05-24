@@ -83,8 +83,12 @@ WSGI_APPLICATION = 'accademica.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3'
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'iitsar_accadem',
+        'USER': 'iitsar_admin',
+        'PASSWORD': 'I4C@Future',
+        'HOST': 'localhost',
+        'PORT': 3306,
     }
     #'default': {
     #    'ENGINE': 'django.db.backends.mysql',
